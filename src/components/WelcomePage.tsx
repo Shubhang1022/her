@@ -5,15 +5,15 @@ interface WelcomePageProps {
 const WelcomePage = ({ onMoveForward }: WelcomePageProps) => {
   // Cat images for creating numbers
   const catImages = [
-    "../images/IMG1.jpeg",
-    "../images/IMG2.jpeg",
-    "../images/IMG3.jpeg",
-    "../images/IMG4.jpeg",
-    "../images/IMG5.jpeg",
-    "../images/IMG6.jpeg",
-    "../images/IMG7.jpeg",
-    "../images/IMG8.jpeg",
-    "../images/IMG9.jpeg",
+    "src/images/IMG1.jpeg",
+    "src/images/IMG2.jpeg",
+    "src/images/IMG3.jpeg",
+    "src/images/IMG4.jpeg",
+    "src/images/IMG5.jpeg",
+    "src/images/IMG6.jpeg",
+    "src/images/IMG7.jpeg",
+    "src/images/IMG8.jpeg",
+    "src/images/IMG9.jpeg",
   ];
 
   // Number patterns using grid positions (1 = cat, 0 = empty)
