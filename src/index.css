@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 350 100% 97%;
+    --foreground: 350 50% 25%;
+
+    --card: 350 100% 98%;
+    --card-foreground: 350 50% 25%;
+
+    --popover: 350 100% 98%;
+    --popover-foreground: 350 50% 25%;
+
+    --primary: 350 80% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 350 60% 90%;
+    --secondary-foreground: 350 50% 30%;
+
+    --muted: 350 40% 92%;
+    --muted-foreground: 350 30% 50%;
+
+    --accent: 0 85% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 350 50% 85%;
+    --input: 350 50% 85%;
+    --ring: 350 80% 60%;
+
+    --radius: 1rem;
+
+    /* Custom colors */
+    --rose-light: 350 100% 95%;
+    --rose-medium: 350 80% 75%;
+    --rose-dark: 350 70% 50%;
+    --heart-red: 0 85% 55%;
+    --cream: 40 100% 97%;
+    --gold: 45 90% 55%;
+  }
+
+  .dark {
+    --background: 350 30% 10%;
+    --foreground: 350 20% 95%;
+    --card: 350 30% 12%;
+    --card-foreground: 350 20% 95%;
+    --popover: 350 30% 12%;
+    --popover-foreground: 350 20% 95%;
+    --primary: 350 80% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 350 30% 20%;
+    --secondary-foreground: 350 20% 90%;
+    --muted: 350 30% 18%;
+    --muted-foreground: 350 20% 70%;
+    --accent: 0 80% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 350 30% 25%;
+    --input: 350 30% 25%;
+    --ring: 350 80% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .cute-button {
+    @apply px-8 py-4 rounded-full font-body font-semibold text-lg 
+           transition-all duration-300 transform hover:scale-110 
+           shadow-lg hover:shadow-xl active:scale-95;
+  }
+
+  .cute-button-primary {
+    @apply cute-button bg-primary text-primary-foreground 
+           hover:bg-rose-medium;
+  }
+
+  .cute-button-secondary {
+    @apply cute-button bg-secondary text-secondary-foreground 
+           hover:bg-muted;
+  }
+
+  .cute-button-accent {
+    @apply cute-button bg-accent text-accent-foreground 
+           hover:brightness-110;
+  }
+
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  .pulse-heart {
+    animation: pulseHeart 1.5s ease-in-out infinite;
+  }
+
+  .sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  .word-reveal {
+    animation: wordReveal 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  .decorative-frame {
+    @apply relative p-8 rounded-3xl;
+    background: linear-gradient(135deg, 
+      hsl(var(--rose-light)) 0%, 
+      hsl(var(--cream)) 50%, 
+      hsl(var(--rose-light)) 100%);
+    border: 4px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .decorative-frame::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: calc(1.5rem + 4px);
+    background: linear-gradient(45deg, 
+      hsl(var(--heart-red)), 
+      hsl(var(--primary)), 
+      hsl(var(--gold)), 
+      hsl(var(--primary)), 
+      hsl(var(--heart-red)));
+    z-index: -1;
+    animation: borderGlow 3s linear infinite;
+    background-size: 300% 300%;
+  }
+}
+
+@layer utilities {
+  .bg-rose-light {
+    background-color: hsl(var(--rose-light));
+  }
+
+  .bg-rose-medium {
+    background-color: hsl(var(--rose-medium));
+  }
+
+  .bg-heart-red {
+    background-color: hsl(var(--heart-red));
+  }
+
+  .text-heart-red {
+    color: hsl(var(--heart-red));
+  }
+
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulseHeart {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes wordReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Hearts floating background */
+.hearts-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: floatUp 8s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
