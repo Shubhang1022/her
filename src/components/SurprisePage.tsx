@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import jabTak from "../images/Jab Tak [128 Kbps]-(SongsPk.mp3";
 
 const SurprisePage = () => {
   const [visibleWords, setVisibleWords] = useState<number>(0);
@@ -12,7 +13,7 @@ const SurprisePage = () => {
 
   useEffect(() => {
     // Play music
-    audioRef.current = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+    audioRef.current = new Audio(jabTak);
     audioRef.current.volume = 0.3;
     audioRef.current.play().catch(() => {
       // Autoplay might be blocked
