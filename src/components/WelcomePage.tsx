@@ -1,20 +1,20 @@
+import img1 from "../images/IMG1.jpeg";
+import img2 from "../images/IMG2.jpeg";
+import img3 from "../images/IMG3.jpeg";
+import img4 from "../images/IMG4.jpeg";
+import img5 from "../images/IMG5.jpeg";
+import img6 from "../images/IMG6.jpeg";
+import img7 from "../images/IMG7.jpeg";
+import img8 from "../images/IMG8.jpeg";
+import img9 from "../images/IMG9.jpeg";
+
 interface WelcomePageProps {
   onMoveForward: () => void;
 }
 
 const WelcomePage = ({ onMoveForward }: WelcomePageProps) => {
   // Cat images for creating numbers
-  const catImages = [
-    "src/images/IMG1.jpeg",
-    "src/images/IMG2.jpeg",
-    "src/images/IMG3.jpeg",
-    "src/images/IMG4.jpeg",
-    "src/images/IMG5.jpeg",
-    "src/images/IMG6.jpeg",
-    "src/images/IMG7.jpeg",
-    "src/images/IMG8.jpeg",
-    "src/images/IMG9.jpeg",
-  ];
+  const catImages = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
   // Number patterns using grid positions (1 = cat, 0 = empty)
   const numberPatterns: Record<string, number[][]> = {
@@ -78,22 +78,34 @@ const WelcomePage = ({ onMoveForward }: WelcomePageProps) => {
       </h1>
 
       {/* 2026 made with cat images */}
-      <div className="flex justify-center w-[70%] h-[317px] items-center mb-8 sm:mb-12 p-4 sm:p-6 bg-card/50 rounded-3xl shadow-xl backdrop-blur-sm" >
+      <div className="flex justify-center w-[70%] h-[317px] items-center mb-8 sm:mb-12 p-4 sm:p-6 bg-card/50 rounded-3xl shadow-xl backdrop-blur-sm">
         {["2", "0", "2", "6"].map((num, index) => renderNumber(num, index))}
       </div>
 
       {/* Decorative elements */}
       <div className="flex gap-4 mb-8">
-        <span className="text-4xl floating" style={{ animationDelay: "0s" }}>🎆</span>
-        <span className="text-4xl floating" style={{ animationDelay: "0.5s" }}>🎇</span>
-        <span className="text-4xl floating" style={{ animationDelay: "1s" }}>🎆</span>
+        <span
+          className="text-4xl floating"
+          style={{ animationDelay: "0s" }}
+        >
+          🎆
+        </span>
+        <span
+          className="text-4xl floating"
+          style={{ animationDelay: "0.5s" }}
+        >
+          🎇
+        </span>
+        <span
+          className="text-4xl floating"
+          style={{ animationDelay: "1s" }}
+        >
+          🎆
+        </span>
       </div>
 
       {/* Move forward button */}
-      <button
-        onClick={onMoveForward}
-        className="cute-button-primary"
-      >
+      <button onClick={onMoveForward} className="cute-button-primary">
         Move Forward →
       </button>
     </div>
